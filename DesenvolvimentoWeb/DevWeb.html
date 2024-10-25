@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/DesenvolvimentoWeb/DevWeb.css">
+</head>
+<body>
+    <header>
+        <h1>Desenvolvimento Web</h1>
+        
+    </header>
+    <main>
+        <img src="/DesenvolvimentoWeb/ImgDevWeb/logohtml.jpg" alt="HTML5" class="Img">
+        <article>
+            <h2>HTML </h2>
+            <p>
+                Nesta disciplina, começamos aprendendo os fundamentos da Linguagem de Marcação de Hipertexto HTML5
+                (HyperText Markup Language), sintaxe básica, tags e ver os resultados no navegador.
+            </p>
+            <p>
+                Algumas de suas principais tags:
+                <ul>
+                    <li> head (normalmente são definidas as informações do documento html, <br>importação
+                        de outros documentos, exemplo: tag title);</li>    
+                    <li> body (onde fica todo o corpo do documento, algumas tags: h1, h2, h6, p, a, img)</li>
+                </ul>
+            </p>
+            <hr>
+            <h2> HTML Semântico </h2>
+            <img src="/DesenvolvimentoWeb/ImgDevWeb/htmlsemanticoImg.png" alt="" class="Img">
+            <p> O HTML semântico tem o papel de trazer mais clareza aos documentos, descrevendo o conteúdo
+                por meio de algumas tags como no exemplo.
+            </p>
+        </article>
+        <hr>
+        <img src="/DesenvolvimentoWeb/ImgDevWeb/logocss.png" alt="CSS3" class="Img">
+        <img src="/DesenvolvimentoWeb/ImgDevWeb/exemplocssImg.png" alt="" class="Imgex">
+        <article>
+            <h2>CSS</h2>
+            <p>
+                Posteriormente, começamos a ver a linguagem de Estilização CSS3 (Cascading Style Sheets),
+                para atribuição de estilos a página WEB escrita pelo no HTML5.
+                <br>
+                Essa linguagem permite definir estilos para elementos HTML, como cores, fontes,
+                espaçamento entre elementos, layout de páginas, e muitos outros aspectos visuais.
+            </p>
+        </article>
+        <hr>
+        <img src="/DesenvolvimentoWeb/ImgDevWeb/logojs.webp" alt="JavaScript" class="Img">
+        <article>
+            <h2>JavaScript</h2>
+            <p>
+                Depois de aprender HTML5 e CSS3, começamos a aprender, enfim, uma Linguagem de Programação,
+                o JavaScript, que é uma das linguagens mais utilizadas no mundo, ela é muito importante, pois
+                sem ela, a página web fica estática. Ao utilizar JavaScript, é possível trazer dinâmica ao site
+                como por exemplo trocar a cor de fundo da página quando um botão é pressionado. 
+                Apesar de ter aprendido a base de programação com Java, nos foi ensinado a sintaxe de JavaScript
+                nesse período.
+            </p>
+            <p>Aqui está um exemplo de um código que imprimirá "Hello, world" 5 vezes no console: </p>
+            <pre>
+                <code>
+                    let i = 0;
+
+                    while (i<5){
+                        console.log("Hello, world! ");
+                        i++;
+                    }
+                </code>
+            </pre>
+            <hr>
+            <h3>
+                DOM
+            </h3>
+            <p>
+                O DOM (Document Object Model) foi um tópico bem importante que aprendemos em JavaScript, com ele
+                é possível pegar elementos do HTML por exemplo, e atribuir a eles uma variável no JS, assim é feito
+                como citado acima, a mudança da cor de fundo do site quando um botão é presionado por exemplo.
+            </p>
+            <p>Um exemplo: </p>
+            <pre>
+                <code>
+                    // pegando o documento html pelo ID dele
+                    // atribui o documento html a uma variável
+                    const botao = document.getElementById('btnTeste'); 
+
+                    // o botão ao ser clicado, executa a função msg
+                    botao.addEventListener('click', msg); 
+
+                    // imprime um alerta na tela
+                    function msg() {
+                        alert('teste')
+                    }
+                    
+                </code>
+            </pre>
+            <hr>
+            <img src="/DesenvolvimentoWeb/ImgDevWeb/figmaImg.png" alt="" class="Img">
+            <h3>Figma</h3>
+            <p>Além disso, utilizamos o site/aplicativo Figma, que é uma ferramenta de design
+                colaborativo baseada na web que permite a criação e prototipagem de interfaces
+                de usuário (UI) e experiências de usuário (UX). 
+                Sua principal função é facilitar o trabalho em equipe no desenvolvimento de projetos digitais.
+            </p>
+            <h3> Projeto Calculadora </h3>
+            <video width="640" height="360" controls class="video">
+                <source src="/DesenvolvimentoWeb/ImgDevWeb/Calculadora - Google Chrome 2024-06-14 13-12-40.mp4" type="video/mp4">
+                Seu navegador não suporta a tag de vídeo.
+            </video>
+        
+
+        </article>
+
+        
+        
+        <a href="https://github.com/JulioFigueiredo/Desenvolvimento-WEB" target="_blank" class="gitDevWeb">Acesse meu GitHub! </a>
+    </main>
+
+
+    <script src="/DesenvolvimentoWeb/DevWeb.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="POO.css">
+</head>
+<body>
+    <header>
+        <h1> Programação Orientada a Objetos </h1>
+    </header>
+    <main>
+        <img src="/POO/POOimg/ImgJava.webp" alt="" class="ImgJava">
+        <article>
+            <p>Nessa disciplina, começamos vendo alguns conceitos sobre Objetos, fazendo alguns
+                paralelos com pensamentos de filósofos, para que possamos entender melhor sobre.
+            </p>
+            <hr>
+            <h1>Classe</h1>
+            <p>É um conceito muito importante em POO, pois a classe é uma abstração de um objeto,
+                é como se fosse uma forma, e a partir dela é possível instanciar vários objetos.
+                <br> <br> A estrutura de uma classe contém: </p>
+                <ul>
+                    <li> Nome da classe </li>
+                    <li> Atributos </li>
+                    <li> Métodos </li>
+                </ul>
+                <p>Aqui está o exemplo de uma classe: </p>
+                <img src="/POO/POOimg/classeCarroImg.png" alt="" class="Img">
+                <p>A partir dela, é possível instanciar vários carros.</p>
+            <hr>
+            <h2>Encapsulamento</h2>
+            <p>Outro conceito muito importante em POO, que tem o objetivo de ocultar alguns detalhes
+                de uma classe. </p>
+                <br> Em Java, existem 3 modificadores de acesso:
+                <ul>
+                    <li> public: o atributo ou método pode ser acessado de qualquer lugar, sendo
+                        de sua classe, classes do mesmo pacote ou de pacotes diferentes.
+                    </li>
+                    <li>private: um atributo ou método privado só pode ser acessado dentro de sua classe.</li>
+                    <li>protected: um atributo ou método protegido só pode ser acessado dentro de sua classe
+                        ou de classes do mesmo pacote.
+                    </li>
+                </ul>
+            <hr>
+            <h1> Métodos: </h1>
+            <h2> Construtor </h2>
+            <p> O objetivo deste método é inicializar os atributos de um objeto quando for instanciado</p>
+            <pre>
+                <code>
+                    public class Carro {
+                        // atributos
+                        private String nome;
+                        private String marca;
+                        private int ano;
+                        private double kilometragem;
+                    
+                        // construtor
+                    
+                        public Carro(String nome, String marca, int ano, double kilometragem) {
+                            this.nome = nome;
+                            this.marca = marca;
+                            this.ano = ano;
+                            this.kilometragem = kilometragem;
+                        }
+                </code>
+            </pre>
+            <h2>Getters and Setters</h2>
+            <p> O objetivo desses métodos é fazer com que os usuários da classe modifiquem os atributos
+                de maneira controlada.
+                <br> Normalmente as IDEs tem alguma função para gerar ambos os métodos.
+            </p>
+            <pre>
+                <code>
+                    public String getNome() {
+                        return nome;
+                    }
+                
+                    public void setNome(String nome) {
+                        this.nome = nome;
+                    }
+                
+                    public String getMarca() {
+                        return marca;
+                    }
+                
+                    public void setMarca(String marca) {
+                        this.marca = marca;
+                    }
+                
+                    public int getAno() {
+                        return ano;
+                    }
+                
+                    public void setAno(int ano) {
+                        this.ano = ano;
+                    }
+                
+                    public double getKilometragem() {
+                        return kilometragem;
+                    }
+                
+                    public void setKilometragem(double kilometragem) {
+                        this.kilometragem = kilometragem;
+                    }
+                
+                </code>
+            </pre>
+            <h2>ToString</h2>
+            <p>Este método é utilizado para descrever o objeto por completo em seu estado atual,
+                facilitando a visualização do usuário.
+            </p>
+            <pre>
+                <code>
+                    @Override
+                    public String toString() {
+                        return "Carro{" +
+                                "nome='" + nome + '\'' +
+                                ", marca='" + marca + '\'' +
+                                ", ano=" + ano +
+                                ", kilometragem=" + kilometragem +
+                                '}';
+                    }
+                </code>
+            </pre>
+            <h1>Instanciar Objeto: </h1>
+            <p>Segue o exemplo de como instanciar um carro</p>
+            <pre>
+                <code>
+                    public class Main {
+                        public static void main(String[] args) {
+                            Carro c1 = new Carro("Corsa", "Chevrolet",
+                                    2000, 80000);
+                    
+                            System.out.println(c1);
+                        }
+                    }
+                </code>
+            </pre>
+            <p>Saída: (por ter o método ToString, ela sai formatada corretamente)</p>
+            <img src="/POO/POOimg/saida1Img.png" alt="" class="ImgCar">
+
+            <h1>Herança</h1>
+            <p>
+                É um conceito muito importante em Orientação a Objetos, que permite que uma classe (filha/subclasse),
+                herde atributos e métodos do (pai/superclasse), fazendo com que não seja necessário repetição
+                de código.
+            </p>
+            <img src="/POO/POOimg/exemploHeranca.png" alt="" class="Img">
+            <p>
+                Nesse caso, Shape é a classe pai, Triangle, Rectangle e Circle herdam de Shape e Square herda 
+                de Rectangle.
+                <br>
+                Segue o exemplo para implementação em Java:
+            </p>
+            <pre>
+                <code>
+                    public class Shape{
+
+                    }
+                </code>
+                <code>
+                    public class Rectangle extends Shape{
+
+                    }
+                </code>
+            </pre>
+            <h2>
+                Métodos Sobrescritos
+            </h2>
+            <p>
+                Em herança, a subclasse herda métodos da superclasse, porém há como substituir o método,
+                para isso, em Java, é utilizado a notação @Override
+            </p>
+            <h2> Classes e métodos abstratos</h2>
+            <p>
+                Classes abstratas não podem ser instanciadas. No exemplo acima, a classe Shape pode ser uma
+                classe abstrata, pois é a generealização das formas geométricas, assim, não precisa que seja
+                instanciada diretamente. Em Java, é utilizado a palavra "abstract"
+            </p>
+            <p>
+                Métodos abstratos são declarados em classes abstratas, porém tem que ser substituidos na subclasse,
+                ele é útil para que ele não seja esquecido na hora de implementar no projeto. A sintaxe é "abstract".
+            </p>
+            <h1>Polimorfismo</h1>
+            <p>
+            Outro conceito importante em POO, o Polimorfismo permite que uma variável refira-se a diferente
+            tipos de objetos
+            <br>
+            No exemplo, a variável do tipo Shape (superclasse) aponta para objetos de diferente tipos
+            (subclasses Rectangle, Square, Ellipse e Circle)
+            </p>
+            <pre>
+                <code>
+                    Shape shape = new Rectangle();
+                    shape = new Square();
+                    shape = new Ellipse();
+                    shape = new Circle();
+                </code>
+            </pre>
+
+            <h2>Projeto editor de Arquivos de Texto</h2>
+            <video width="640" height="360" controls class="video">
+                <source src="/POO/POOimg/EditorArquivosDeTexto – Main.java 2024-06-14 13-36-27.mp4" type="video/mp4">
+                Seu navegador não suporta a tag de vídeo.
+            </video>
+        </article>
+        <a href="https://github.com/JulioFigueiredo/LP" target="_blank" class="gitPOO">Acesse meu GitHub! </a>
+    </main>
+</body>
+</html>

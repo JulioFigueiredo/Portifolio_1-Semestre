@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/BancoDeDados/BD.css">
+</head>
+<body>
+    <header>
+        <h1> Banco de Dados </h1>
+    </header>
+    <main>
+        <img src="imgTiposDeDados.png" alt="TiposDeDados" class="TiposDadosImg">
+        <article>
+            <p>
+                Primeiro, começamos vendo tipos de dados, entre eles existem:
+                <ul>
+                    <li>Dados Estruturados</li>
+                    <li> Dados não Estruturados</li>
+                    <li> Dados Semi Estruturados</li>
+                </ul>
+            </p>
+        </article>
+        <img src="imgDiagramaER.png" alt="DiagramaER" class="DiagramaERimg">
+        <article>
+            <h1 style="text-decoration: underline wheat;">Banco de dados Relacionais</h1>
+            <p>
+                Posteriormente, vimos o diagrama (ER) Entidade Relacionamento e alguns conceitos
+                importantes como:
+                <ul>
+                    <li> Primary Key </li>
+                    <li> Foreign Key</li>
+                    <li> Cardinalidade </li>
+                </ul>
+            </p>
+        </article>
+        <img src="PostgreImg.jpg" alt="PostgreSQL" class="PostgreImg">
+        <article>
+            <p>
+                Depois de aprender a fazer Diagramas ER, começamos a aprender com o SGBD do PostegreSQL,
+                utilizando a Interface de desenvolvimento PgAdmin.
+                <br>
+                Aprendemos:
+                <h3>Comandos DDL (Data Definition Language):</h3>
+                <ul>
+                    <li>Create Table</li>
+                    <li>Alter table</li>
+                    <li>Drop table</li>
+                </ul>
+                <pre>
+                    <code>
+                        -- cria uma tabela 
+                        CREATE TABLE livros (
+                            isbn SERIAL PRIMARY KEY,
+                            titulo varchar(60),
+                            editora varchar(50),
+                            ano DATE
+                        )
+                    </code>
+                </pre>
+                <h3> Comandos DML (Data Manipulation Language)</h3>
+                <ul>
+                    <li> Insert </li>
+                    <li> Update </li>
+                    <li> Delete </li>
+                    <li> Select </li>
+                </ul>
+                <pre>
+                    <code>
+                        -- preencha as colunas da tabela criada
+                        -- segue essa ordem
+                        INSERT INTO livros (titulo, editora, ano) 
+                        VALUES
+                            ('Dom Quixote', 'Companhia das Letras', '1605-01-01'),
+                            ('Crime e Castigo', 'Editora 34', '1866-01-01'),
+                            ('1984', 'Companhia das Letras', '1949-01-01'),
+                            ('O Pequeno Príncipe', 'Agir', '1943-01-01'),
+                            ('Orgulho e Preconceito', 'Martin Claret', '1813-01-01'),
+                            ('Memórias Póstumas de Brás Cubas', 'Companhia das Letras', '1881-01-01'),
+                            ('A Arte da Guerra', 'Cultrix', '500-01-01'),
+                            ('O Hobbit', 'WMF Martins Fontes', '1937-01-01'),
+                            ('O Senhor dos Anéis: A Sociedade do Anel', 'Martins Fontes', '1954-01-01'),
+                            ('Harry Potter e a Pedra Filosofal', 'Rocco', '1997-01-01');
+                    </code>
+                </pre>
+                <h3> Comandos DQL (Data Query Language)</h3>
+                <ul>
+                    <li> Select </li>
+                    <li> Operadores SQL </li>
+                    <li> Order by </li>
+                    <li> Join </li>
+                    <li> Cross Join </li>
+                    <li> From </li>
+                    <li> Inner join </li>
+                    <li> Left/Right/Full Join </li>
+                    <li> Group By </li>
+                    <li> União, Interseção e Diferença </li>
+                </ul>
+                <pre>
+                    <code>
+                        -- mostra todas as linhas e colunas da tabela
+                        SELECT * FROM autores
+                    </code>
+                    <code>
+                        -- seleciona duas colunas de duas tabelas diferentes e junta
+                        SELECT titulo, nome_autor FROM livros INNER JOIN autores
+                        ON livros.isbn = autores.id_autor
+                    </code>
+                </pre>
+                <h3> Normalização: </h3>
+                <p>
+                    Normalização é o processo de organização de dados em um banco de dados. 
+                    Isso inclui a criação de tabelas e o estabelecimento de relações entre essas
+                    tabelas de acordo com as regras projetadas para proteger os dados e tornar
+                    o banco de dados mais flexível, eliminando a redundância e a dependência inconsistente.
+                </p>
+                <ul>
+                    <li> 1FN </li>
+                    <li> 2FN </li>
+                    <li> 3FN </li>
+                </ul>
+            </p>
+            <h1 style="text-decoration: underline black;">Banco de dados NoSQL</h1>
+            <p>
+                É um tipo de banco de dados que não utiliza tabelas para se relacionar, ele opera 
+                bem dados desestruturados como dados multimídia, além disso, tem uma escalabilidade
+                horizontal.
+            </p>
+            <img src="noSQLimg.png" alt="" class="DiagramaERimg">
+            <p>
+                Nesse semestre, vimos o Banco de dados MongoDB e utilizamos a funcionalidade do Atlas.
+                Para realizar exercícios, utilizamos o Compass GUI
+                <br>
+                
+            </p>
+            <img src="mongoIMg.png" alt="" class="DiagramaERimg">
+        </article>
+        <a href="https://github.com/JulioFigueiredo/Banco-de-dados" target="_blank" class="gitBD">Acesse meu GitHub! </a>
+
+    </main>
+</body>
+</html>

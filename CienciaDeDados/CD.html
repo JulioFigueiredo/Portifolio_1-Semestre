@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CD.css">
+</head>
+<body>
+    <header>
+        <h1> Ciência De Dados </h1>
+    </header>
+    <main>
+        <article>
+            <img src="/CienciaDeDados/ImgCD/logoPy.png" alt="" class="Img">
+        <h1 class="titulos">Amostragem</h1>
+        <p>Começamos vendo alguns princípios e tipos de amostragem utilizando, na prática, a linguagem
+            Python, com a biblioteca Pandas e praticando através de um DataFrame do Titanic. df = dataframe
+        </p>
+        <h2>Amostra Aleatória</h2>
+        <pre>
+            <code>
+                # df.iloc[1, 2] # selecionar uma celula do df linha 1 coluna 2
+                # df.iloc[1:5, 2:4] #selecionando intervalos
+                # df.iloc[:, 2:4] #seleciona todas as linhas mas com um intervalo de colunas
+                # df.iloc[[1,3,5], [2,4,6]] #seleciona linhas e colunas específicas
+
+                #np.random.randint(0, 100, 2) #np.random.randint(init, final, size(quantidade de numeros aleatorios))
+
+                #colete uma amostra aleatória de 10 linhas do df titanic
+                # df.iloc[np.random.randint(0, 1308, 100), :] #esse pode repetir numero
+                amostra1 = df.iloc[10:50].sample(10).sort_index() #seleciona 10 números aleatórios no intervalo de 10 a 50
+                amostra = df.sample(10) #10 linhas aleatórias #esse não repete
+                amostra1
+            </code>
+        </pre>
+        <h2>Amostra Sistemática</h2>
+        <pre>
+            <code>
+                # função numpy arange -> gera um array a partir de um intervalo
+                # assinatura da função: np.arange(init, final, step)
+
+                # array = np.arange(0, 101, 5)
+                # array
+                size = 10
+                step = 31
+
+                passo1 = np.random.randint(0,1309-size*step,1)
+
+                linha = np.arange(passo1, 1309, step) [:size] ## [:size] foi utilizado para limitar 10 números
+                linha
+
+                amostra_sistematica = df.iloc[linha]
+                amostra_sistematica
+                # exercício: obtenha uma amostra sistemática do df com passo 31
+            </code>
+        </pre>
+        <h2>Amostra Estratificada</h2>
+        <pre>
+            <code>
+                all_male = df.loc[df['sex'] == 'male']
+                sample_Male = all_male.sample(round(all_male.shape[0]*0.01)) ## shape informa a quantidade de linhas e colunas
+                sample_Male
+
+                all_female = df.loc[df['sex'] == 'female']
+                sample_Female = all_female.sample(round(all_female.shape[0]*0.01)) ## esse 0 puxa as linhas, se fosse 1 seria colunas
+                sample_Female
+
+                sample_Female.shape ## quantidade de linhas e colunas
+                ## 5 é a posição 0 e 14 é a posição 1
+
+
+                all_male = df.loc[df['sex'] == 'male']
+                sample_Male = all_male.sample((round(int(all_male.shape[0]*0.01))))
+                sample_Male
+
+                all_Female = df.loc[df['sex'] == 'female']
+                sample_Female = all_female.sample((round(int(all_female.shape[0]*0.01))))
+                sample_Female
+            </code>
+        </pre>
+        <h1 class="titulos">Tendências Centrais</h1>
+        <p>As tendências centrais são utilizadas para representar um conjunto de dados com um único valor,
+            sendo importante no estudo da estatística.
+        </p>
+        <h2>Moda</h2>
+        <p> Em um conjunto de dados, é o elemento que mais se repete, pode ser: 
+            <br> No python, pode ser calculada utilizando o método <span style="color: red;">mode()</span>.
+        </p>
+        <ul>
+            <li class="lista"> Modal: Possui uma única moda</li>
+            <li class="lista"> Bimodal: Quando um conjunto possui duas modas </li>
+            <li class="lista"> Polimodal: Quando possui três ou mais modas </li>
+            <li class="lista"> Amodal: Todos os elementos com a mesma frequência </li>
+        </ul>
+        <h2> Mediana </h2>
+        <p>É o elemento central do conjunto quando colocado em ordem crescente.
+            <br> No Python, pode ser calculada através do método <span style="color: red;">median()</span>.
+        </p>
+        <h2> Média Aritmética </h2>
+        <p>É calculada pela soma de elementos do conjunto dividido pela quantidade de elementos </p>
+        <br> No Python, pode ser calculada através do método <span style="color: red;">mean()</span>.
+        <h2>Média Aritmética Ponderada </h2>
+        <p> 
+            Na média aritmética ponderada, são atribuídos pesos para cada um dos valores. Quanto maior for o peso, 
+            maior será a influência daquele determinado dado no valor da média aritmética ponderada.
+        </p>
+        <h2>Percentil</h2>
+        <p>É uma medida que divide uma amostra em ordem crescente em 100 partes, cada uma com uma
+            porcentagem de dados aproximadamente igual. No Python, pode ser calculado através do
+            método <span style="color: red;">quantile()</span>
+            <br> Aqui está um exemplo de uma amostra com 11 valores:
+            <br>
+            <img src="/CienciaDeDados/ImgCD/PercentilImg.png" alt="Percentil" class="Imgpeq">
+        </p>
+        <h2>Quartil</h2>
+        <p> É uma medida que tem a mesma idéia do percentil, porém são usados 3 valores de referência,
+            sendo os percentis 25%, 50% e 75%, além do min e max.
+            <br> Aqui está um exemplo: <br>
+            <img src="/CienciaDeDados/ImgCD/QuartilImg.png" alt="Quartil" class="Imgpeq">
+        </p>
+
+        <h1>Medidas de dispersão:</h1>
+        <h2>Amplitude</h2>
+        <p> É resultado da diferença entre a maior e a menor observação em um conjunto de dados.
+            No Python, é possível calcular através dos métodos <span style="color: red;">min()</span>
+            e <span style="color: red;">max()</span>
+        </p>
+        
+        </article>
+        <a href="https://colab.research.google.com/drive/1fVi6XPAc4fNt396j2KxdSlwASWw0Iad7?usp=sharing" target="_blank" class="colab">Acesse meu Colab! </a>
+
+    </main>
+</body>
+</html>

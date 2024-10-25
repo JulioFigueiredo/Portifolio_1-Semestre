@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="AI.css">
+</head>
+<body>
+    <header>
+        <h1>Automação Industrial</h1>
+    </header>
+
+    <main>
+        <img src="/AutomaçãoIndustrial/AI_Img/logoCpp.png" alt="ImagemC++" class="logoCpp">
+        <article>
+                <p>
+                    Nessa disciplina, aprendemos na prática a programar microcontroladores como Arduíno e ESP32,
+                utilizando os sites TinkerCad e WokWi, utilizando a linguagem de programação C++, desenvolvida
+                pela Microsoft.
+                </p>
+                <p>
+                    Durante o semestre, fizemos alguns e exercícios e pequenos projetos como um semáforo, onde pudemos
+                aplicar nossos conhecimentos obtidos nesse período.
+                </p>
+                <img src="/AutomaçãoIndustrial/AI_Img/arduino-2168193_1280.webp" alt="Imagem Arduíno" class="ImgArduino">
+                <img src="/AutomaçãoIndustrial/AI_Img/espImg.jpg" alt="Imagem Esp" class="espImg">
+                <hr>
+                <h2> Exemplo: </h2>
+                <p>Aqui está um exemplo de um código simples para ligar um led quando um botão 
+                    for pressionado no arduíno:
+                </p>
+                <pre>
+                    <code>
+                        bool indicador_verde = false; 
+                        bool botao_pressionado = false;
+
+                        void setup() {
+                        pinMode(6, INPUT); // o botao está no pino 6 do arduíno
+                        pinMode(4, OUTPUT); // o led está no pino 4 do arduíno
+                        }
+
+                        void loop() {
+                        // a função digitalRead lê o estado do botão
+                        // retorna um booleano
+                        botao_pressionado = digitalRead(6); 
+                        if (botao_pressionado == true) { // se for pressionado
+                            digitalWrite(4, HIGH); // liga o led
+                            delay(1000); // delay de 1 segundo
+                        } else { // se não
+                            digitalWrite(4, LOW); // desliga o led
+                            delay(1000); // delay de 1 segundo
+                        }
+                        }
+                    </code>
+                </pre>
+                <hr>
+                <h2>Funções: </h2>
+                <h3>pinMode</h3>
+                <p>
+                    <span style="text-decoration: underline;"><span style="color: yellow;">pinMode</span>(pin, mode);</span><br>
+                    <span style="color: white;">pin</span> = Número do pino que deseja configurar <br>
+                    <span style="color: white;">mode</span> = se é entrada (INPUT) ou saída (OUTPUT)
+                </p>
+                <p>Inputs: Sensores, botões</p>
+                <p>Outputs: Leds</p>
+                <hr>
+                <h3>digitalRead</h3>
+                <p>
+                    A função digitalRead() no Arduino é usada para ler
+                    o estado lógico (HIGH or LOW) de um pino digital. 
+                </p>
+                <p>digitalRead(<span style="color: yellow;">pin</span>);</p>
+                <span style="color: yellow;">pin</span> = número do pino digital.
+                <hr>
+                <h3>digitalWrite</h3>
+                <p>
+                    A função digitalWrite() no Arduino é usada para definir
+                    o estado lógico (alto ou baixo) de um pino digital específico.
+                </p>
+                <p>digitalWrite(<span style="color: yellow;">pin</span>, <span style="color: white;">value</span>);</p>
+                <span style="color: yellow;">pin</span> = número do pino digital. <br>
+                <span style="color: white;">value</span> = valor que deseja mandar para o pino (HIGH or LOW)
+                <hr>
+                <h2>Confira o vídeo na prática:</h2>
+        </article>
+        <video width="640" height="360" controls class="video">
+            <source src="/AutomaçãoIndustrial/AI_Img/Circuit design Copy of Ex. 01 - Tinkercad - Google Chrome 2024-06-05 16-13-37.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+        
+        <a href="https://github.com/JulioFigueiredo/AI" target="_blank" class="gitAI">Acesse meu GitHub! </a>
+    </main>
+
+</body>
+</html></html>
